@@ -1,0 +1,20 @@
+h1 Sign Up
+= form_for @user do |f|
+  div
+    = f.label :email
+    = f.text_field :email
+  div
+    = f.label :password
+    = f.password_field :password
+  div
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation
+  div
+    = f.label :name
+    = f.text_field :name, autofocus: true
+  div
+    = f.label :gender
+    = select_tag :gender, options_for_select(User.genders)
+
+  div
+    = f.submit "Register"

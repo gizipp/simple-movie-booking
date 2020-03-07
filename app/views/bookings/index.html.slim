@@ -1,0 +1,3 @@
+- if showtime.booked?(current_user.id)
+  = link_to "Cancel", booking_cancel_path(showtime), method: :post
+- else

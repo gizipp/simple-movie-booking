@@ -1,0 +1,15 @@
+h3
+  = @movie.name
+  - @movie.theatres.each do |theatre|
+    h4
+      = theatre.name
+    h5
+      = "#{theatre.capacity} seats"
+      - theatre.screenings.where(movie_id: @movie.id).each do |screening|
+        hr
+        = screening.start_time
+        = ' - Rp '
+        = screening.price
+        - if !screening.in_the_past? && screening.seat_available?
+          = ' | '
+          = link_to "Book", book_path(screening), method: :post if current_user

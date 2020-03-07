@@ -1,0 +1,13 @@
+- if @bookings.empty?
+  | No bookings yet.
+- else
+  - @bookings.each do |booking|
+    h3 = booking.screening.movie.name
+    p
+      = booking.screening.theatre.name
+      = " - "
+      = booking.screening.start_time
+      - if !booking.screening.in_the_past?
+        = " | "
+        = link_to "Cancel", cancel_bookings_path(booking), method: :post
+    hr

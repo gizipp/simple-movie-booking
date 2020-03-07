@@ -1,0 +1,7 @@
+- if @movies
+    ul
+      - @movies.each do |movie|
+        li
+          p = link_to movie.name, movies_path(movie)
+- else
+    p No movies

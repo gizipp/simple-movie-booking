@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    title MovieBooking
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag "application"
+
+  body
+    - if current_user
+      = link_to ' Home ', root_path
+      = link_to ' Booking ', bookings_path
+      = link_to ' Logout ', logout_path, method: :delete
+    - else
+      = link_to ' Home ', root_path
+      = link_to ' Login ', login_path
+      = link_to ' Register ', new_user_path
+    hr/
+    = notice if notice
+    = alert if alert
+    = yield
