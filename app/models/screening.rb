@@ -1,10 +1,11 @@
 class Screening < ApplicationRecord
   has_many :bookings
+
   belongs_to :movie
   belongs_to :theatre
 
   def start_time
-    start_at.strftime("%H:%m")
+    start_at.strftime("%H:%M")
   end
 
   def booked? user_id
@@ -16,11 +17,11 @@ class Screening < ApplicationRecord
     start_at - start_at.midnight < current_time - current_time.midnight
   end
 
-  def seat_available?
-    seat_available > 0
-  end
-
   def seat_available
     theatre.capacity - bookings.count
+  end
+
+  def seat_available?
+    seat_available > 0
   end
 end

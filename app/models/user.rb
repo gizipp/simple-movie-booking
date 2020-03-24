@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :bookings
 
   has_secure_password
+
   validates :email,    presence: true,
                        uniqueness: true,
                        format: /\w+@\w+\.{1}[a-zA-Z]{2,}/
@@ -17,5 +18,4 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 8 },
                        allow_blank: true,
                        on: :update
-  validates :gender,   inclusion: { in: genders.keys }
 end
