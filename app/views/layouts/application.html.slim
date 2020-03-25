@@ -5,10 +5,10 @@ html
     title MovieBooking
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_pack_tag 'application'
     = javascript_pack_tag "application"
 
-  body
+  body.container
     - if current_user
       = link_to ' Home ', root_path
       = link_to ' Booking ', bookings_path
