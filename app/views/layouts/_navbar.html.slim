@@ -1,0 +1,17 @@
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  div.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      - if current_user
+        li.nav-item.active
+          = link_to 'Home', root_path, class: 'nav-link'
+        li.nav-item
+          = link_to 'Booking', bookings_path, class: 'nav-link'
+        li.nav-item
+          = link_to 'Logout', logout_path, method: :delete, class: 'nav-link'
+      - else
+        li.nav-item.active
+          = link_to 'Home', root_path, class: 'nav-link'
+        li.nav-item
+          = link_to 'Login', login_path, class: 'nav-link'
+        li.nav-item
+          = link_to 'Register', new_user_path, class: 'nav-link'

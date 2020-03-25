@@ -1,15 +1,21 @@
-h3
-  = @movie.name
-  - @movie.theatres.each do |theatre|
-    h4
-      = theatre.name
-    h5
-      = "#{theatre.capacity} seats"
+.text-center
+  h3.display-3
+    = @movie.name
+
+  .row.justify-content-md-center
+    - @movie.theatres.each do |theatre|
+      .col-sm-12.mb-1
+        h5
+          = theatre.name
       - theatre.screenings.where(movie_id: @movie.id).each do |screening|
-        hr
-        = screening.start_time
-        = ' - Rp '
-        = screening.price
-        - if !screening.in_the_past? && screening.seat_available?
-          = ' | '
-          = link_to "Book", book_path(screening), method: :post if current_user
+        .col-sm-4.mb-5
+          .card
+            .card-body
+              h5.card-title
+                = screening.start_time
+              p
+                = number_to_currency(screening.price, unit: "Rp ", precision: 0, delimiter: ".")
+                = " - "
+                = screening.availability_formatted
+
+              = link_to "Book", book_path(screening), method: :post, class: 'btn btn-primary' if current_user

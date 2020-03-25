@@ -24,4 +24,8 @@ class Screening < ApplicationRecord
   def seat_available?
     seat_available > 0
   end
+
+  def availability_formatted
+    "#{seat_available} / #{theatre.capacity} seats"
+  end
 end

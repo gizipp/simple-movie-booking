@@ -6,18 +6,12 @@ html
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_pack_tag 'application'
-    = javascript_pack_tag "application"
+    = javascript_pack_tag 'application'
 
-  body.container
-    - if current_user
-      = link_to ' Home ', root_path
-      = link_to ' Booking ', bookings_path
-      = link_to ' Logout ', logout_path, method: :delete
-    - else
-      = link_to ' Home ', root_path
-      = link_to ' Login ', login_path
-      = link_to ' Register ', new_user_path
-    hr/
-    = notice if notice
-    = alert if alert
-    = yield
+  body
+    = render "layouts/navbar"
+
+    .container.mt-4
+      = notice if notice
+      = alert if alert
+      = yield

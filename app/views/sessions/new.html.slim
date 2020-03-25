@@ -1,10 +1,10 @@
 h1 Log In
 = form_for :login do |f|
-  div
+  div.form-group
     = f.label :email
-    = f.text_field :email, autofocus: true
-  div
+    = f.text_field :email, class: 'form-control', autofocus: true
+  div.form-group
     = f.label :password
-    = f.password_field :password
-  div
-    = f.submit "Log In"
+    = f.password_field :password, class: 'form-control'
+  div.form-group
+    = f.submit "Log In", class: 'btn btn-primary'
