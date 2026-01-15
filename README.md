@@ -1,40 +1,52 @@
 # Description
 
-Simple movie ticket booking codebase - [Rails](https://rubyonrails.org/) framework based.
+Modern movie ticket booking application built with **Rails 8.1.2** and **PostgreSQL**.
+
+**Tech Stack:**
+- Rails 8.1.2
+- Ruby 3.4.3
+- PostgreSQL
+- Hotwire (Turbo + Stimulus)
+- Tailwind CSS 4
+- Importmap for JavaScript
 
 # Development
 
-Clone this repository, make sure required Ruby and bundler installed, in example
+## Prerequisites
+- **Ruby 3.4.3** - Use [RVM](https://rvm.io/), [rbenv](https://github.com/rbenv/rbenv), or [asdf](https://github.com/asdf-vm/asdf)
+- **Bundler** 2.1.4 or higher - `gem install bundler`
+- **PostgreSQL** - Must be installed and running
 
-```
-$ ruby -v
-# ruby 3.4.3
+## Setup
 
-$ bundler -v
-Bundler version 2.1.4
+Clone this repository and install dependencies:
 
-```
-And run
-
-```
+```bash
 bundle install
 ```
 
-Recommended tools and requirement :
-- Ruby 3.4.3, use [RVM](https://rvm.io/), [rbenv](https://github.com/rbenv/rbenv) or [asdf](https://github.com/asdf-vm/asdf) to install preferred version with version manager
-- [Bundler](https://bundler.io/) 2.1.4, simply run `gem install bundler -v 2.1.4`
-- Rails 7.2.3, minimal requirement ruby >= 2.7.0 and bundler >= 1.8.11
+Create and migrate the database:
 
-Start server
-
-```
-rails s -b 0.0.0.0
-# server should be running on http://localhost:3000
-```
-
-If databases not created/migrated yet
-
-```
+```bash
 rails db:create
 rails db:migrate
+```
+
+## Running the Application
+
+Start the development server:
+
+```bash
+bin/dev
+# Or use rails server directly:
+rails s
+# Server will be available at http://localhost:3000
+```
+
+## Testing
+
+Run the test suite:
+
+```bash
+bundle exec rspec
 ```

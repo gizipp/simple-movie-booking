@@ -3,16 +3,19 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.4.3'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.1'
+gem 'rails', '~> 8.0'
+
 # Use Puma as the app server
-gem 'puma', '~> 6.0'
+gem 'puma', '>= 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+
+# Modern Frontend Stack
+gem 'importmap-rails'
+gem 'turbo-rails'
+gem 'stimulus-rails'
+gem 'tailwindcss-rails'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
@@ -29,10 +32,12 @@ gem 'ffi', '~> 1.15.0'
 gem 'logger'
 gem 'mutex_m'
 
+# Use PostgreSQL as the database for all environments
+gem 'pg', '~> 1.5'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'sqlite3', '1.5.4'
 end
 
 group :development do
@@ -50,7 +55,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
-  gem 'rspec-rails', '~> 7.0'
+  gem 'rspec-rails', '~> 7.1' # Rspec rails 7+ supports Rails 8 mostly
   gem 'shoulda-matchers', '~> 6.0'
 end
 
@@ -58,7 +63,3 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'slim'
-
-group :production do
-  gem "pg", "~> 1.5"
-end
