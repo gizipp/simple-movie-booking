@@ -23,7 +23,7 @@ bundle install
 Recommended tools and requirement :
 - Ruby 3.4.3, use [RVM](https://rvm.io/), [rbenv](https://github.com/rbenv/rbenv) or [asdf](https://github.com/asdf-vm/asdf) to install preferred version with version manager
 - [Bundler](https://bundler.io/) 2.1.4, simply run `gem install bundler -v 2.1.4`
-- Rails 6.1.5, minimal requirement ruby >= 2.5.0 and bundler >= 1.8.11
+- Rails 7.2.3, minimal requirement ruby >= 2.7.0 and bundler >= 1.8.11
 
 Start server
 
